@@ -1,7 +1,7 @@
 local extension = Package:new("strongknights")
 extension.extensionName = "strongknights"
 
-extension:loadSkillSkelsByPath ("./packages/strongknights/pkg/strongknights/skills")
+extension:loadSkillSkelsByPath ("./packages/StrongKnights/pkg/strongknights/skills")
 
 Fk:loadTranslationTable {
     ["strongknights"] = "最强勇士"
