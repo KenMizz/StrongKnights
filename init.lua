@@ -1,7 +1,9 @@
 local prefix = "packages.StrongKnights.pkg."
 local StrongKnights = require (prefix .. "strongknights")
 
-Fk:loadTranslationTable{ ["strongknights"] = "最强勇士" }
+-- Load translation
+require("packages.StrongKnights.i18n.en_US")
+require("packages.StrongKnights.i18n.zh_CN")
 
 return {
     StrongKnights
