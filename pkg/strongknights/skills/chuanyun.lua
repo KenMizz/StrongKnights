@@ -11,19 +11,23 @@ Fk:loadTranslationTable {
 
 chuanyun:addEffect("viewas", {
     prompt = "#chuanyun",
-    anim_type = "defensive",
+    anim_type = "control",
     pattern = "archery_attack",
     handly_pile = true,
     filter_pattern = {
         min_num = 1,
         max_num = 1,
-        pattern = ".|.|black|^equip"
+        pattern = ".|.|black",
     },
     view_as = function(self, player, cards)
-        if #cards ~=1 then return end
-        local cloneCard = Fk:cloneCard("archery_attack")
-        cloneCard.skillName = chuanyun.name
-        return cloneCard
+        if #cards ~= 1 then return end
+        local archery_card = Fk:cloneCard("archery_attack")
+        archery_card.skillName = chuanyun.name
+        archery_card:addSubcard(cards[1])
+        return archery_card
+    end,
+    enabled_at_response = function (self, player, response) -- Not allow to use during response stage
+        return not response
     end
 })
 
